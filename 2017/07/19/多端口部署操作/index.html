@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/blog/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="linux,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="多端口部署操作 mysql多端口部署操作部署前说明部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。 创建数据库存放目录在Xshell或SSH上登录服务器，在控制台中使用mkdir -p /home/mysql/mysqlDB/文件夹名称，创建数据存放目录。  注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：12m">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多端口部署操作">
+<meta property="og:url" content="http://marsleo.gitee.io/blog/2017/07/19/多端口部署操作/index.html">
+<meta property="og:site_name" content="NATURE">
+<meta property="og:description" content="多端口部署操作 mysql多端口部署操作部署前说明部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。 创建数据库存放目录在Xshell或SSH上登录服务器，在控制台中使用mkdir -p /home/mysql/mysqlDB/文件夹名称，创建数据存放目录。  注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：12m">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494309506470.png">
+<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494471320053.png">
+<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/07/19/多端口部署操作/多端口部署操作/markdown-img-paste-20170823163340608.png">
+<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494310049070.png">
+<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494471394411.png">
+<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494471809610.png">
+<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494471921767.png">
+<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494472002998.png">
+<meta property="og:updated_time" content="2019-03-25T14:02:56.688Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多端口部署操作">
+<meta name="twitter:description" content="多端口部署操作 mysql多端口部署操作部署前说明部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。 创建数据库存放目录在Xshell或SSH上登录服务器，在控制台中使用mkdir -p /home/mysql/mysqlDB/文件夹名称，创建数据存放目录。  注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：12m">
+<meta name="twitter:image" content="http://marsleo.gitee.io/多端口部署操作/1494309506470.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>多端口部署操作 | NATURE</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NATURE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">MarsLeo Guo</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://marsleo.gitee.io/blog/blog/2017/07/19/多端口部署操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MarsLeo Guo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/20170718142644.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NATURE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多端口部署操作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-19T11:20:02+08:00">
+                2017-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="多端口部署操作"><a href="#多端口部署操作" class="headerlink" title="多端口部署操作"></a>多端口部署操作</h1><hr>
+<h2 id="mysql多端口部署操作"><a href="#mysql多端口部署操作" class="headerlink" title="mysql多端口部署操作"></a>mysql多端口部署操作</h2><h3 id="部署前说明"><a href="#部署前说明" class="headerlink" title="部署前说明"></a>部署前说明</h3><p>部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。</p>
+<h3 id="创建数据库存放目录"><a href="#创建数据库存放目录" class="headerlink" title="创建数据库存放目录"></a>创建数据库存放目录</h3><p>在Xshell或SSH上登录服务器，在控制台中使用<code>mkdir -p /home/mysql/mysqlDB/文件夹名称</code>，创建数据存放目录。</p>
+<blockquote>
+<p>注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /home/mysql/mysqlDB/data3306</span><br><span class="line">mkdir -p /home/mysql/mysqlDB/data4306</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>如下图所示：<br><img src="/多端口部署操作/1494309506470.png" alt="Alt text"></p>
+<a id="more"></a>
+<h3 id="创建mysqlSock代理文件夹"><a href="#创建mysqlSock代理文件夹" class="headerlink" title="创建mysqlSock代理文件夹"></a>创建mysqlSock代理文件夹</h3><p>在控制台中使用<code>mkdir -p /home/mysqlsock/文件名称</code>，创建数据存放目录。</p>
+<blockquote>
+<p>注:以多端口号作为文件名称。例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /home/mysql/mysqlsock/</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>详情如图：</p>
+<p><img src="/多端口部署操作/1494471320053.png" alt="Alt text"></p>
+<p><img src="多端口部署操作/markdown-img-paste-20170823163340608.png" alt="Alt text"></p>
+<h3 id="复制和配置my-cnf"><a href="#复制和配置my-cnf" class="headerlink" title="复制和配置my.cnf"></a>复制和配置my.cnf</h3><h4 id="复制my-cnf配置文件："><a href="#复制my-cnf配置文件：" class="headerlink" title="复制my.cnf配置文件："></a>复制my.cnf配置文件：</h4><p>执行下面语句复制mysql数据库配置文件到<code>/etc/</code>目录下并更名为<code>my3306.cnf</code>。<strong>重复命令建立my4306.cnf</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/mysql/my.cnf  /etc/my3306.cnf</span><br></pre></td></tr></table></figure></p>
+<p>详情如下图所示：<br><img src="/多端口部署操作/1494310049070.png" alt="Alt text"></p>
+<h4 id="配置my-cnf配置文件："><a href="#配置my-cnf配置文件：" class="headerlink" title="配置my.cnf配置文件："></a>配置my.cnf配置文件：</h4><ol>
+<li><p><strong>配置my3306.cnf配置文件：</strong></p>
+<ol>
+<li>在控制台中使用命令<code>vim /etc/my3306.cnf</code>编辑配置文件。</li>
+<li>按<code>Insert</code>进入编辑模式<ol>
+<li>修改<code>mysqld</code>标签：<ul>
+<li>在<code>[mysqld]</code>标签下添加命令:</li>
+<li>修改<code>datadir = /home/mysql/mysqlDB/data3306</code></li>
+<li>增加<code>port = 3306</code></li>
+<li>增加<code>socket = /home/mysql/mysqlsock/sock3306.sock</code></li>
+</ul>
+</li>
+<li>增加<code>[client]</code>标签<ul>
+<li>移动光标至文本末端</li>
+<li>增加<code>default-character-set=utf8</code></li>
+<li>增加<code>port = 3306</code></li>
+<li>增加<code>socket = /home/mysql/mysqlsock/sock3306.sock</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li>保存文档<code>ESC+wq</code> 保存退出。</li>
+</ol>
+</li>
+<li><p><strong>配置my4306.cnf配置文件</strong></p>
+<ol>
+<li>在控制台中使用命令<code>vim /etc/my4306.cnf</code>编辑配置文件。</li>
+<li>按<code>Insert</code>进入编辑模式<ol>
+<li>修改<code>mysqld</code>标签：<ul>
+<li>在<code>[mysqld]</code>标签下添加命令:</li>
+<li>修改<code>datadir = /home/mysql/mysqlDB/data4306</code></li>
+<li>增加<code>port = 4306</code></li>
+<li>增加<code>socket = /home/mysql/mysqlsock/sock4306.sock</code></li>
+</ul>
+</li>
+<li>增加<code>[client]</code>标签<ul>
+<li>移动光标至文本末端</li>
+<li>增加<code>default-character-set=utf8</code></li>
+<li>增加<code>port = 4306</code></li>
+<li>增加<code>socket = /home/mysql/mysqlsock/sock4306.sock</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li>保存文档<code>ESC+wq</code> 保存退出。</li>
+</ol>
+</li>
+</ol>
+<p>代码举例如下：<br><strong>[mysqld]</strong>标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">basedir    = /usr/local/mysql</span><br><span class="line">datadir = /home/mysql/mysqlDB/data4306</span><br><span class="line">port = 4306</span><br><span class="line">socket = /home/mysql/mysqlsock/sock4306.sock</span><br></pre></td></tr></table></figure></p>
+<p><strong>[client]</strong>标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">port = 4306</span><br><span class="line">socket = /home/mysql/mysqlsock/sock4306.sock</span><br></pre></td></tr></table></figure></p>
+<h3 id="赋予目录权限和初始化数据库"><a href="#赋予目录权限和初始化数据库" class="headerlink" title="赋予目录权限和初始化数据库"></a>赋予目录权限和初始化数据库</h3><ol>
+<li><p>赋予目录权限</p>
+<ol>
+<li>执行<code>chown -R mysql:mysql /home/mysql/mysqlDB/</code>,赋予数据库目录，mysql用户权限。</li>
+<li>执行<code>chown -R mysql:mysql /home/mysql/mysqlsock/</code>,赋予数据库日志目录，mysql用户权限。如下图所示：<br><img src="/多端口部署操作/1494471394411.png" alt="Alt text"></li>
+</ol>
+</li>
+<li><p><strong>初始化3306数据库：</strong></p>
+<ol>
+<li>执行<code>cd /usr/local/mysql</code> ,进入mysql目录中，</li>
+<li>执行<code>scripts/mysql_install_db --user=mysql --datadir=/home/mysql/mysqlDB/data3306/</code>,</li>
+</ol>
+</li>
+<li><strong>初始化4306端口数据库：</strong><ol>
+<li>执行<code>cd /usr/local/mysql</code> ,进入mysql目录中，</li>
+<li>执行<code>scripts/mysql_install_db --user=mysql --datadir=/home/mysql/mysqlDB/data4306/</code>,<blockquote>
+<p>注：每个<code>--</code>之前都有空格</p>
+</blockquote>
+<h3 id="启动mysql多端口和root用户设置"><a href="#启动mysql多端口和root用户设置" class="headerlink" title="启动mysql多端口和root用户设置"></a>启动mysql多端口和root用户设置</h3></li>
+</ol>
+</li>
+<li><p><strong>设置3306</strong></p>
+<ol>
+<li><p>设置<code>3306</code>端口数据库启动使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my3306.cnf --basedir=/usr/local/mysql/ --datadir=/home/mysql/mysqlDB/data3306/ --user=mysql --skip-grant-tables &amp;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：其中<code>--skip-grant-tables</code>是跳过授权</p>
+</blockquote>
+</li>
+<li><p>设置<code>3306</code>端口数据库root用户</p>
+</li>
+<li>登录mysql数据库：<code>mysql -uroot -S /home/mysql/mysqlsock/sock3306.sock -P 3306</code></li>
+<li>修改密码：<ol>
+<li>使用mysql数据库 <code>use mysql;</code></li>
+<li>设置密码<code>update user set password=password(&#39;mnt123!@#asd&#39;) where user=&#39;root&#39; and host=&#39;localhost&#39;;</code></li>
+<li>刷新授权<code>flush privileges;</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>设置4306</strong></p>
+<ol>
+<li><p>设置<code>4306</code>端口数据库启动使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my4306.cnf --basedir=/usr/local/mysql/ --datadir=/home/mysql/mysqlDB/data4306/ --user=mysql --skip-grant-tables &amp;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：其中<code>--skip-grant-tables</code>是跳过授权</p>
+</blockquote>
+</li>
+<li><p>设置<code>4306</code>端口数据库root用户</p>
+</li>
+<li>登录mysql数据库：<code>mysql -uroot -S /home/mysql/mysqlsock/sock4306.sock -P 4306</code></li>
+<li>修改密码：<ol>
+<li>使用mysql数据库 <code>use mysql;</code></li>
+<li>设置密码<code>update user set password=password(&#39;mnt123!@#asd&#39;) where user=&#39;root&#39; and host=&#39;localhost&#39;;</code></li>
+<li>刷新授权<code>flush privileges;</code></li>
+<li>停止当前服务</li>
+<li>查看当前mysql的进程：<code>ps -ef|grep mysql</code></li>
+<li><code>kill -9  进程ID</code> 停止所有4306相关的进程</li>
+<li>重新启动<code>mysql</code>。<h3 id="多端口登陆并设置远程登陆"><a href="#多端口登陆并设置远程登陆" class="headerlink" title="多端口登陆并设置远程登陆"></a>多端口登陆并设置远程登陆</h3></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>执行<code>mysql -uroot -p&#39;mnt123!@#asd&#39; -S /home/mysql/mysqlsock/sock4306.sock -P 3306</code>登录数据库。</li>
+<li>执行<code>GRANT ALL PRIVILEGES ON core_db.* TO maiyam@&quot;%&quot; IDENTIFIED BY &#39;123!@#asd&#39;;</code>配置远程登录用户使用命令。<blockquote>
+<p>注:其中core_db是要授权的数据库，也可以直接使用<em>.</em>直接授予所有数据库权限。</p>
+</blockquote>
+<h3 id="设置防火墙"><a href="#设置防火墙" class="headerlink" title="设置防火墙"></a>设置防火墙</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed -i &quot;/--dport 22/a\\-A INPUT -m state --state NEW -m tcp -p  tcp --dport 3306 -j ACCEPT &quot; /etc/sysconfig/iptables;</span><br><span class="line">sed -i &quot;/--dport 3306 /a\\-A INPUT -m state --state NEW -m tcp -p tcp --dport 4306 -j ACCEPT&quot; /etc/sysconfig/iptables;</span><br><span class="line">sed -i &quot;/--dport 4306 /a\\-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT&quot; /etc/sysconfig/iptables;</span><br><span class="line">service iptables restart;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="停止服务和启动服务"><a href="#停止服务和启动服务" class="headerlink" title="停止服务和启动服务"></a>停止服务和启动服务</h3><ol>
+<li><p>停止命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -h127.0.0.1 -uroot -p&apos;mnt123!@#asd&apos; -P3306 shutdown</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my3306.cnf --basedir=/usr/local/mysql/ --datadir=/home/mysql/mysqlDB/data3306/ --user=mysql &amp;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>mysql</code>多端口部署完成，通过远程登陆选择对应端口，自行导入数据库即可。</p>
+<hr>
+<h2 id="tomcat多端口部署操作"><a href="#tomcat多端口部署操作" class="headerlink" title="tomcat多端口部署操作"></a>tomcat多端口部署操作</h2><h3 id="部署前说明-1"><a href="#部署前说明-1" class="headerlink" title="部署前说明"></a>部署前说明</h3><p>部署tomcat多端口前，请确保服务器上已经有tomcat。这里不在重复，tomcat安装及配置。</p>
+<h3 id="tomcat部署前配置"><a href="#tomcat部署前配置" class="headerlink" title="tomcat部署前配置"></a>tomcat部署前配置</h3><ol>
+<li>在<code>Xshell</code>或<code>SSH</code>命令窗口中使用<code>cd /usr/local/tomcat/conf</code>,进入<code>tomcat/conf</code>目录中。</li>
+<li>通过<code>Xftp</code>将目中的<code>Server.xml</code>下载到本地并复制一份更名<code>Serverbak.xml</code>保存，以便修改失败恢复用。</li>
+<li><p>编辑<code>server.xml</code> ，在文件末端<code>&lt;/Service&gt;</code>标签与<code>&lt;/Server&gt;</code>。如下图所示。<br><img src="/多端口部署操作/1494471809610.png" alt="Alt text"></p>
+<ol start="4">
+<li>在<code>&lt;/Service&gt;</code>和<code>&lt;/Server&gt;</code>中填入如下配置：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Service</span> <span class="attr">name</span>=<span class="string">"Catalina1"</span>&gt;</span> <span class="comment">&lt;!--设置服务的名字，注意名字不能重复!这里设</span></span><br><span class="line"><span class="comment">置服务名为：Catalinal--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8090"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag"><span class="attr">redirectPort</span>=<span class="string">"8443"</span> <span class="attr">URIEncoding</span>=<span class="string">"UTF-8"</span>/&gt;</span><span class="comment">&lt;!-- 设置</span></span><br><span class="line"><span class="comment">服务连接地址的端口号，端口号也不能与系统中其他的端口号重复,这里设置8090--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8888"</span> <span class="attr">enableLookups</span>=<span class="string">"false"</span> <span class="attr">redirectPort</span>=<span class="string">"844</span></span></span><br><span class="line"><span class="tag"><span class="string">3"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Engine</span> <span class="attr">name</span>=<span class="string">"Catalina1"</span> <span class="attr">defaultHost</span>=<span class="string">"localhost"</span>&gt;</span><span class="comment">&lt;!--设置Servl</span></span><br><span class="line"><span class="comment">et引擎的名字,这个设置Catalina1--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.LockOutRealm"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.UserDatabaseRealm"</span> <span class="attr">resourceName</span>=<span class="string">"UserDatabase"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Realm</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"webapps1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.AccessLogValve"</span> <span class="attr">directory</span>=<span class="string">"logs"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">prefix</span>=<span class="string">"localhost_access_log."</span> <span class="attr">suffix</span>=<span class="string">".txt"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">pattern</span>=<span class="string">"%h %l %u %t &amp;quot;%r&amp;quot; %s %b"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>配置完成后保存。将修改后的Server.xml，通过Xftp到会到/usr/local/tomcat/conf/目录下，覆盖原文件。</p>
+<h3 id="说明-红色部分需要注意"><a href="#说明-红色部分需要注意" class="headerlink" title="说明:红色部分需要注意"></a>说明:红色部分需要注意</h3><h3 id="停止tomcat服务和重启tomcat服务"><a href="#停止tomcat服务和重启tomcat服务" class="headerlink" title="停止tomcat服务和重启tomcat服务"></a>停止tomcat服务和重启tomcat服务</h3><h4 id="查看进程："><a href="#查看进程：" class="headerlink" title="查看进程："></a>查看进程：</h4><p>执行<code>ps –ef |grep tomcat</code>，查看tomcat在linux中的进程号。如图所示：<br><img src="/多端口部署操作/1494471921767.png" alt="Alt text"></p>
+<blockquote>
+<p><code>14396</code>就是当前运行<code>tomcat</code>的进程号。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="停止进程："><a href="#停止进程：" class="headerlink" title="停止进程："></a>停止进程：</h4><p>执行<code>kill -9 14396</code> 停止<code>tomcat</code>服务。</p>
+<h4 id="启动进程："><a href="#启动进程：" class="headerlink" title="启动进程："></a>启动进程：</h4><ol>
+<li>执行<code>cd /usr/local/tomcat/bin</code>，进入tomcat/bin目录中.</li>
+<li>在命令窗口中输入<code>./startup.sh</code>启动<code>tomcat</code>程序。如图所示：<br><img src="/多端口部署操作/1494472002998.png" alt="Alt text"></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/07/19/atom手动安装插件包/" rel="next" title="atom 手动安装插件包">
+                <i class="fa fa-chevron-left"></i> atom 手动安装插件包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/07/19/Hexo常见问题/" rel="prev" title="Hexo常见问题">
+                Hexo常见问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/blog/20170718142644.jpg" alt="MarsLeo Guo">
+          <p class="site-author-name" itemprop="name">MarsLeo Guo</p>
+           
+              <p class="site-description motion-element" itemprop="description">人法地，地法天，天法道，道法自然。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1605220882/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多端口部署操作"><span class="nav-number">1.</span> <span class="nav-text">多端口部署操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql多端口部署操作"><span class="nav-number">1.1.</span> <span class="nav-text">mysql多端口部署操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署前说明"><span class="nav-number">1.1.1.</span> <span class="nav-text">部署前说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库存放目录"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建数据库存放目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建mysqlSock代理文件夹"><span class="nav-number">1.1.3.</span> <span class="nav-text">创建mysqlSock代理文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制和配置my-cnf"><span class="nav-number">1.1.4.</span> <span class="nav-text">复制和配置my.cnf</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#复制my-cnf配置文件："><span class="nav-number">1.1.4.1.</span> <span class="nav-text">复制my.cnf配置文件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置my-cnf配置文件："><span class="nav-number">1.1.4.2.</span> <span class="nav-text">配置my.cnf配置文件：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赋予目录权限和初始化数据库"><span class="nav-number">1.1.5.</span> <span class="nav-text">赋予目录权限和初始化数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动mysql多端口和root用户设置"><span class="nav-number">1.1.6.</span> <span class="nav-text">启动mysql多端口和root用户设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多端口登陆并设置远程登陆"><span class="nav-number">1.1.7.</span> <span class="nav-text">多端口登陆并设置远程登陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置防火墙"><span class="nav-number">1.1.8.</span> <span class="nav-text">设置防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止服务和启动服务"><span class="nav-number">1.1.9.</span> <span class="nav-text">停止服务和启动服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tomcat多端口部署操作"><span class="nav-number">1.2.</span> <span class="nav-text">tomcat多端口部署操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署前说明-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">部署前说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tomcat部署前配置"><span class="nav-number">1.2.2.</span> <span class="nav-text">tomcat部署前配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明-红色部分需要注意"><span class="nav-number">1.2.3.</span> <span class="nav-text">说明:红色部分需要注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止tomcat服务和重启tomcat服务"><span class="nav-number">1.2.4.</span> <span class="nav-text">停止tomcat服务和重启tomcat服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看进程："><span class="nav-number">1.2.4.1.</span> <span class="nav-text">查看进程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#停止进程："><span class="nav-number">1.2.4.2.</span> <span class="nav-text">停止进程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动进程："><span class="nav-number">1.2.4.3.</span> <span class="nav-text">启动进程：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MarsLeo Guo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

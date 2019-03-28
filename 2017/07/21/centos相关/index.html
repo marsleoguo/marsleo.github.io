@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/blog/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="centos,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="查看ip地址1ifconfig 修改centos语言为中文 第一步: vim /etc/profile 第二步：在文件的末尾添加export LANG=zh_CN.GB2312 第三步：wq保存。 第四步：刷新profile文件。source /etc/profile">
+<meta name="keywords" content="centos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos相关">
+<meta property="og:url" content="http://marsleo.gitee.io/blog/2017/07/21/centos相关/index.html">
+<meta property="og:site_name" content="NATURE">
+<meta property="og:description" content="查看ip地址1ifconfig 修改centos语言为中文 第一步: vim /etc/profile 第二步：在文件的末尾添加export LANG=zh_CN.GB2312 第三步：wq保存。 第四步：刷新profile文件。source /etc/profile">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-25T14:02:56.671Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="centos相关">
+<meta name="twitter:description" content="查看ip地址1ifconfig 修改centos语言为中文 第一步: vim /etc/profile 第二步：在文件的末尾添加export LANG=zh_CN.GB2312 第三步：wq保存。 第四步：刷新profile文件。source /etc/profile">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>centos相关 | NATURE</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NATURE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">MarsLeo Guo</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://marsleo.gitee.io/blog/blog/2017/07/21/centos相关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MarsLeo Guo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/20170718142644.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NATURE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">centos相关</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T14:28:56+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/centos/" itemprop="url" rel="index">
+                    <span itemprop="name">centos</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="查看ip地址"><a href="#查看ip地址" class="headerlink" title="查看ip地址"></a>查看<code>ip</code>地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<h4 id="修改centos语言为中文"><a href="#修改centos语言为中文" class="headerlink" title="修改centos语言为中文"></a>修改<code>centos</code>语言为中文</h4><ul>
+<li>第一步: <code>vim /etc/profile</code></li>
+<li>第二步：在文件的末尾添加<code>export LANG=zh_CN.GB2312</code></li>
+<li>第三步：wq保存。</li>
+<li>第四步：刷新<code>profile</code>文件。<code>source /etc/profile</code></li>
+</ul>
+<a id="more"></a>
+<h4 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a><code>JDK</code>安装</h4><ul>
+<li><p>第一步：在<code>/usr/local/</code>下创建文件夹<code>soft resource</code>。代码如下：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.cd /usr/local/ --进入local文件夹下</span><br><span class="line"></span><br><span class="line">2.mkdir soft resource --创建文件夹</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二步：通过xftp将<code>JDK</code>安装文件放入到<code>/usr/local/src/soft resource/</code>下</p>
+</li>
+<li><p>第三步：解压<code>JDK</code>gz文件</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.cd /usr/local/src/soft resource/ -- 进入soft resource文件夹</span><br><span class="line">2.tar -zvxf /usr/local/src/jdk-7u71-linux-x64.tar.gz -- 解压jdk的安装文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第四步：在<code>/usr/</code> 下创建<code>java</code>文件夹</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/java</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第五步：剪切<code>jdk</code>解压后的文件到<code>java</code>文件夹下并且命名为<code>java</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv jdk1.7.0_71 /usr/java/jdk;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第六步：配置jdk的环境变量</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.vim /etc/profile</span><br><span class="line">2.在文件的末尾添加：</span><br><span class="line">export JAVA_HOME=/usr/java/jdk</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意：不要忘记<code>PATH</code>后边的<code>:$PATH</code>那个代表系统变量的<code>path</code></p>
+</blockquote>
+<ul>
+<li>第七步：让修改生效: 执行<code>source /etc/profile</code></li>
+</ul>
+<h4 id="MySql安装"><a href="#MySql安装" class="headerlink" title="MySql安装"></a><code>MySql</code>安装</h4><ul>
+<li><ol>
+<li>在<code>/usr/local/</code>下创建文件夹<code>soft resource</code>。代码如下：   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.cd /usr/local/ --进入local文件夹下</span><br><span class="line"></span><br><span class="line">2.mkdir soft resource --创建文件夹</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>通过xftp将<code>MySql</code>安装文件放入到<code>/usr/local/src/soft resource/</code>下</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>解压<code>MySql</code>gz文件   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.cd /usr/local/src/soft resource/ -- 进入soft resource文件夹</span><br><span class="line">2.tar -zvxf mysql-5.6.34-linux-glibc2.5-x86_64.tar.gz -- 解压MySql的安装文件</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>剪切<code>MySql</code>解压后的文件到<code>mysql</code>文件夹下 并且配置Path路径   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.mv mysql-5.6.34-linux-glibc2.5-x86_64 /usr/local/mysql/</span><br><span class="line">2.vim /etc/profile</span><br><span class="line">3.添加export MYSQL_HOME=/usr/local/mysql</span><br><span class="line">4.path路径添加home路径：export PATH=:$MYSQL_HOME/bin</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>创建一个新的工作组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>创建系统账户并将它指向给新创建的工作组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -r -g mysql mysql;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>进入<code>mysql</code>文件夹<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mysql</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>修改当前文件夹的属组为<code>mysql</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R mysql:mysql ./;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="9">
+<li>执行以下语句：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/mysql_install_db --user=mysql;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="10">
+<li>修改当前文件夹的属组为<code>root</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R root:root ./;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="11">
+<li>修改data文件夹的属组为’mysql<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R mysql:mysql ./data;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="12">
+<li>将<code>mysql</code>的服务放入到系统服务文件夹<code>（init.d）</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\cp support-files/mysql.server /etc/init.d/mysql;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="13">
+<li>启动<code>mysql</code>服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql start;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="14">
+<li>修改服务文件夹下 mysql文件的权限<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/init.d/mysql;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="15">
+<li>创建符号链接<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\ln -s /usr/local/mysql/bin/mysql /usr/bin;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="16">
+<li>登录<code>mysql</code>设置<code>root</code>密码</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.mysql -h 127.0.0.1 -u root -p</span><br><span class="line">2.回车</span><br><span class="line">3.password提示，然后再回车。</span><br><span class="line">4.设置密码：mysql&gt; set password for root@localhost = password(&apos;123&apos;);</span><br></pre></td></tr></table></figure>
+<h4 id="tomcat安装"><a href="#tomcat安装" class="headerlink" title="tomcat安装"></a><code>tomcat</code>安装</h4><ul>
+<li><ol>
+<li>在<code>/usr/local/</code>下创建文件夹<code>soft resource</code>。代码如下：   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.cd /usr/local/ --进入local文件夹下</span><br><span class="line"></span><br><span class="line">2.mkdir soft resource --创建文件夹</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>通过xftp将<code>MySql</code>安装文件放入到<code>/usr/local/src/soft resource/</code>下</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>解压tomcat文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zvxf /usr/local/src/apache-tomcat-7.0.69.tar.gz;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>剪切解压缩后的文件到<code>/user/local/tomcat</code>下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /usr/local/src/apache-tomcat-7.0.69 /usr/local/tomcat;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>设置<code>tomcat</code>的运行内存等：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.vim /usr/local/tomcat/bin/catalina.sh</span><br><span class="line">2.在第一行添加:JAVA_OPTS=&apos;-Xms512m -Xmx2048m -XX:PermSize=256M -XX:MaxNewSize=512m -XX:MaxPermSize=2048m&apos;</span><br><span class="line">3.chmod +x /usr/local/tomcat/bin/catalina.sh;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>设置<code>tomcat</code>的字符集：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.vim /usr/local/tomcat/conf/server.xml</span><br><span class="line">2.在端口号为&quot; &lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;&quot;处添加：URIEncoding=&quot;utf-8&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>设置<code>/etc/profile</code>文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.export CATALINA_HOME=/usr/local/tomcat</span><br><span class="line">2.export PATH=$CATALINA_HOME/bin</span><br><span class="line">3.export CLASSPATH=$CATALINA_HOME/lib/servlet-api.jar</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop;-- 停止防火墙</span><br><span class="line">chkconfig iptables off;-- 开机启动的时候停止防火墙</span><br></pre></td></tr></table></figure>
+<h4 id="多端口的问题"><a href="#多端口的问题" class="headerlink" title="多端口的问题"></a>多端口的问题</h4><h4 id="出现command-not-found的解决办法。"><a href="#出现command-not-found的解决办法。" class="headerlink" title="出现command not found的解决办法。"></a>出现<code>command not found</code>的解决办法。</h4><p>执行以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export</span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin</span><br></pre></td></tr></table></figure></p>
+<h4 id="创建一个新的工作组-groupadd"><a href="#创建一个新的工作组-groupadd" class="headerlink" title="创建一个新的工作组 _groupadd"></a>创建一个新的工作组 _<code>groupadd</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql;</span><br></pre></td></tr></table></figure>
+<h4 id="创建一个新的系统用户-useradd"><a href="#创建一个新的系统用户-useradd" class="headerlink" title="创建一个新的系统用户_useradd"></a>创建一个新的系统用户_<code>useradd</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -r -g mysql mysql;</span><br></pre></td></tr></table></figure>
+<p><code>-r</code>:建立系统帐号；</p>
+<p><code>-g&lt;群组&gt;</code>：指定用户所属的群组；</p>
+<h4 id="chown用法"><a href="#chown用法" class="headerlink" title="chown用法"></a>chown用法</h4><p><strong>用途：</strong> 用来更改某个目录或文件的用户名和用户组的</p>
+<p><strong>用法：</strong> <code>chown 用户名:组名 文件路径</code>（可以是就对路径也可以是相对路径）</p>
+<p><strong>例如：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown root:root /tmp/tmp1</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>就是把tmp下的tmp1的用户名和用户组改成root和root（只修改了tmp1的属组）.</p>
+</blockquote>
+<h4 id="centos-定时任务"><a href="#centos-定时任务" class="headerlink" title="centos 定时任务"></a>centos 定时任务</h4><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>service crond start</code></td>
+<td>启动服务</td>
+</tr>
+<tr>
+<td><code>service crond stop</code></td>
+<td>关闭服务</td>
+</tr>
+<tr>
+<td><code>service crond restart</code></td>
+<td>重启服务</td>
+</tr>
+<tr>
+<td><code>service crond reload</code></td>
+<td>重新载入配置</td>
+</tr>
+<tr>
+<td><code>crontab -l</code></td>
+<td>查看定时任务</td>
+</tr>
+<tr>
+<td><code>crontab -e</code></td>
+<td>编辑定时任务</td>
+</tr>
+</tbody>
+</table>
+<p><strong>例子：</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">56 22 3 jul * rm -rf /root/test</span><br></pre></td></tr></table></figure></p>
+<h5 id="cron文件语法"><a href="#cron文件语法" class="headerlink" title="cron文件语法:"></a>cron文件语法:</h5><table>
+<thead>
+<tr>
+<th>分</th>
+<th>小时</th>
+<th>日</th>
+<th>月</th>
+<th>星期</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-59</td>
+<td>0-23</td>
+<td>1-31</td>
+<td>1-12</td>
+<td>0-6</td>
+<td>sh脚本</td>
+</tr>
+</tbody>
+</table>
+<h5 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h5><ul>
+<li><code>*</code>代表取值范围内的数字</li>
+<li><code>/</code>代表”每”</li>
+<li><code>-</code>代表从某个数字到某个数字</li>
+<li><code>,</code>分开几个离散的数字</li>
+</ul>
+<p>例如： <code>*/15 * * * * sh /root/test1.sh</code>             指定每天的 5:30 执行ls命令</p>
+<h4 id="目录的绑定与解除绑定"><a href="#目录的绑定与解除绑定" class="headerlink" title="目录的绑定与解除绑定"></a>目录的绑定与解除绑定</h4><p><strong>绑定：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount --bind 老目录  新目录</span><br></pre></td></tr></table></figure></p>
+<p>解除绑定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount --move 老目录 新目录</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>解绑是绑定的一个反过程所以要调过来。</p>
+</blockquote>
+<h4 id="设置目录永久关联"><a href="#设置目录永久关联" class="headerlink" title="设置目录永久关联"></a>设置目录永久关联</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &quot;/proc/a\\\n/home/mnt/resource    /usr/local/tomcat/webapps/core/resource   none   rw,bind  0 0&quot; /etc/fstab;</span><br></pre></td></tr></table></figure>
+<h4 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>想要启动什么在这个文件里添加就行。</p>
+</blockquote>
+<h4 id="ftp的安装"><a href="#ftp的安装" class="headerlink" title="ftp的安装"></a>ftp的安装</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><h5 id="配置自启动"><a href="#配置自启动" class="headerlink" title="配置自启动"></a>配置自启动</h5><h5 id="查看管理ftp服务"><a href="#查看管理ftp服务" class="headerlink" title="查看管理ftp服务"></a>查看管理ftp服务</h5><h5 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h5><h5 id="常见错误处理"><a href="#常见错误处理" class="headerlink" title="常见错误处理"></a>常见错误处理</h5><h4 id="mysql账户授权为可远程访问用户"><a href="#mysql账户授权为可远程访问用户" class="headerlink" title="mysql账户授权为可远程访问用户"></a>mysql账户授权为可远程访问用户</h4><ol>
+<li><p>使用命令行登陆<code>mysql</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p&apos;123456&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择<code>mysql</code>数据库实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给<code>root</code>用户授权可远程访问权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;123456&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刷新权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用数据库DBMS尝试一下是否成功。</p>
+</li>
+<li>退出数据库。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/centos/" rel="tag"># centos</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/07/21/辽宁大学一日游/" rel="next" title="辽宁大学一日游">
+                <i class="fa fa-chevron-left"></i> 辽宁大学一日游
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/07/21/关于Shell/" rel="prev" title="关于Shell">
+                关于Shell <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/blog/20170718142644.jpg" alt="MarsLeo Guo">
+          <p class="site-author-name" itemprop="name">MarsLeo Guo</p>
+           
+              <p class="site-description motion-element" itemprop="description">人法地，地法天，天法道，道法自然。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1605220882/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看ip地址"><span class="nav-number">1.</span> <span class="nav-text">查看ip地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改centos语言为中文"><span class="nav-number">2.</span> <span class="nav-text">修改centos语言为中文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK安装"><span class="nav-number">3.</span> <span class="nav-text">JDK安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySql安装"><span class="nav-number">4.</span> <span class="nav-text">MySql安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tomcat安装"><span class="nav-number">5.</span> <span class="nav-text">tomcat安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">6.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多端口的问题"><span class="nav-number">7.</span> <span class="nav-text">多端口的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#出现command-not-found的解决办法。"><span class="nav-number">8.</span> <span class="nav-text">出现command not found的解决办法。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个新的工作组-groupadd"><span class="nav-number">9.</span> <span class="nav-text">创建一个新的工作组 _groupadd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个新的系统用户-useradd"><span class="nav-number">10.</span> <span class="nav-text">创建一个新的系统用户_useradd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chown用法"><span class="nav-number">11.</span> <span class="nav-text">chown用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#centos-定时任务"><span class="nav-number">12.</span> <span class="nav-text">centos 定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cron文件语法"><span class="nav-number">12.1.</span> <span class="nav-text">cron文件语法:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊字符"><span class="nav-number">12.2.</span> <span class="nav-text">特殊字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目录的绑定与解除绑定"><span class="nav-number">13.</span> <span class="nav-text">目录的绑定与解除绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置目录永久关联"><span class="nav-number">14.</span> <span class="nav-text">设置目录永久关联</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置开机启动"><span class="nav-number">15.</span> <span class="nav-text">设置开机启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ftp的安装"><span class="nav-number">16.</span> <span class="nav-text">ftp的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">16.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置自启动"><span class="nav-number">16.2.</span> <span class="nav-text">配置自启动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看管理ftp服务"><span class="nav-number">16.3.</span> <span class="nav-text">查看管理ftp服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改配置文件"><span class="nav-number">16.4.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常见错误处理"><span class="nav-number">16.5.</span> <span class="nav-text">常见错误处理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql账户授权为可远程访问用户"><span class="nav-number">17.</span> <span class="nav-text">mysql账户授权为可远程访问用户</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MarsLeo Guo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
