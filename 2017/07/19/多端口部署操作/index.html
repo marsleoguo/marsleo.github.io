@@ -101,19 +101,19 @@
 <meta property="og:site_name" content="NATURE">
 <meta property="og:description" content="多端口部署操作 mysql多端口部署操作部署前说明部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。 创建数据库存放目录在Xshell或SSH上登录服务器，在控制台中使用mkdir -p /home/mysql/mysqlDB/文件夹名称，创建数据存放目录。  注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：12m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494309506470.png">
-<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494471320053.png">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/1494309506470.png">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/1494471320053.png">
 <meta property="og:image" content="http://marsleo.gitee.io/blog/2017/07/19/多端口部署操作/多端口部署操作/markdown-img-paste-20170823163340608.png">
-<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494310049070.png">
-<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494471394411.png">
-<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494471809610.png">
-<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494471921767.png">
-<meta property="og:image" content="http://marsleo.gitee.io/多端口部署操作/1494472002998.png">
-<meta property="og:updated_time" content="2019-03-25T14:02:56.688Z">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/1494310049070.png">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/1494471394411.png">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/1494471809610.png">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/1494471921767.png">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/1494472002998.png">
+<meta property="og:updated_time" content="2019-03-28T05:40:18.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多端口部署操作">
 <meta name="twitter:description" content="多端口部署操作 mysql多端口部署操作部署前说明部署mysql多端口前，请确保服务器上已经有mysql数据库。这里不在重复，mysql数据库安装及配置。 创建数据库存放目录在Xshell或SSH上登录服务器，在控制台中使用mkdir -p /home/mysql/mysqlDB/文件夹名称，创建数据存放目录。  注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：12m">
-<meta name="twitter:image" content="http://marsleo.gitee.io/多端口部署操作/1494309506470.png">
+<meta name="twitter:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/1494309506470.png">
 
 
 
@@ -391,17 +391,17 @@
 <blockquote>
 <p>注:多端口可以在data目录后追加端口号，这样便利后期查询启动错误日志。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /home/mysql/mysqlDB/data3306</span><br><span class="line">mkdir -p /home/mysql/mysqlDB/data4306</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>如下图所示：<br><img src="/多端口部署操作/1494309506470.png" alt="Alt text"></p>
+<p>如下图所示：<br><img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494309506470.png" alt="Alt text"></p>
 <a id="more"></a>
 <h3 id="创建mysqlSock代理文件夹"><a href="#创建mysqlSock代理文件夹" class="headerlink" title="创建mysqlSock代理文件夹"></a>创建mysqlSock代理文件夹</h3><p>在控制台中使用<code>mkdir -p /home/mysqlsock/文件名称</code>，创建数据存放目录。</p>
 <blockquote>
 <p>注:以多端口号作为文件名称。例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /home/mysql/mysqlsock/</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>详情如图：</p>
-<p><img src="/多端口部署操作/1494471320053.png" alt="Alt text"></p>
+<p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471320053.png" alt="Alt text"></p>
 <p><img src="多端口部署操作/markdown-img-paste-20170823163340608.png" alt="Alt text"></p>
 <h3 id="复制和配置my-cnf"><a href="#复制和配置my-cnf" class="headerlink" title="复制和配置my.cnf"></a>复制和配置my.cnf</h3><h4 id="复制my-cnf配置文件："><a href="#复制my-cnf配置文件：" class="headerlink" title="复制my.cnf配置文件："></a>复制my.cnf配置文件：</h4><p>执行下面语句复制mysql数据库配置文件到<code>/etc/</code>目录下并更名为<code>my3306.cnf</code>。<strong>重复命令建立my4306.cnf</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/mysql/my.cnf  /etc/my3306.cnf</span><br></pre></td></tr></table></figure></p>
-<p>详情如下图所示：<br><img src="/多端口部署操作/1494310049070.png" alt="Alt text"></p>
+<p>详情如下图所示：<br><img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494310049070.png" alt="Alt text"></p>
 <h4 id="配置my-cnf配置文件："><a href="#配置my-cnf配置文件：" class="headerlink" title="配置my.cnf配置文件："></a>配置my.cnf配置文件：</h4><ol>
 <li><p><strong>配置my3306.cnf配置文件：</strong></p>
 <ol>
@@ -460,7 +460,7 @@
 <li><p>赋予目录权限</p>
 <ol>
 <li>执行<code>chown -R mysql:mysql /home/mysql/mysqlDB/</code>,赋予数据库目录，mysql用户权限。</li>
-<li>执行<code>chown -R mysql:mysql /home/mysql/mysqlsock/</code>,赋予数据库日志目录，mysql用户权限。如下图所示：<br><img src="/多端口部署操作/1494471394411.png" alt="Alt text"></li>
+<li>执行<code>chown -R mysql:mysql /home/mysql/mysqlsock/</code>,赋予数据库日志目录，mysql用户权限。如下图所示：<br><img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471394411.png" alt="Alt text"></li>
 </ol>
 </li>
 <li><p><strong>初始化3306数据库：</strong></p>
@@ -540,14 +540,14 @@
 <h3 id="tomcat部署前配置"><a href="#tomcat部署前配置" class="headerlink" title="tomcat部署前配置"></a>tomcat部署前配置</h3><ol>
 <li>在<code>Xshell</code>或<code>SSH</code>命令窗口中使用<code>cd /usr/local/tomcat/conf</code>,进入<code>tomcat/conf</code>目录中。</li>
 <li>通过<code>Xftp</code>将目中的<code>Server.xml</code>下载到本地并复制一份更名<code>Serverbak.xml</code>保存，以便修改失败恢复用。</li>
-<li><p>编辑<code>server.xml</code> ，在文件末端<code>&lt;/Service&gt;</code>标签与<code>&lt;/Server&gt;</code>。如下图所示。<br><img src="/多端口部署操作/1494471809610.png" alt="Alt text"></p>
+<li><p>编辑<code>server.xml</code> ，在文件末端<code>&lt;/Service&gt;</code>标签与<code>&lt;/Server&gt;</code>。如下图所示。<br><img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471809610.png" alt="Alt text"></p>
 <ol start="4">
 <li>在<code>&lt;/Service&gt;</code>和<code>&lt;/Server&gt;</code>中填入如下配置：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Service</span> <span class="attr">name</span>=<span class="string">"Catalina1"</span>&gt;</span> <span class="comment">&lt;!--设置服务的名字，注意名字不能重复!这里设</span></span><br><span class="line"><span class="comment">置服务名为：Catalinal--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8090"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag"><span class="attr">redirectPort</span>=<span class="string">"8443"</span> <span class="attr">URIEncoding</span>=<span class="string">"UTF-8"</span>/&gt;</span><span class="comment">&lt;!-- 设置</span></span><br><span class="line"><span class="comment">服务连接地址的端口号，端口号也不能与系统中其他的端口号重复,这里设置8090--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8888"</span> <span class="attr">enableLookups</span>=<span class="string">"false"</span> <span class="attr">redirectPort</span>=<span class="string">"844</span></span></span><br><span class="line"><span class="tag"><span class="string">3"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Engine</span> <span class="attr">name</span>=<span class="string">"Catalina1"</span> <span class="attr">defaultHost</span>=<span class="string">"localhost"</span>&gt;</span><span class="comment">&lt;!--设置Servl</span></span><br><span class="line"><span class="comment">et引擎的名字,这个设置Catalina1--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.LockOutRealm"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.UserDatabaseRealm"</span> <span class="attr">resourceName</span>=<span class="string">"UserDatabase"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Realm</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"webapps1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.AccessLogValve"</span> <span class="attr">directory</span>=<span class="string">"logs"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">prefix</span>=<span class="string">"localhost_access_log."</span> <span class="attr">suffix</span>=<span class="string">".txt"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">pattern</span>=<span class="string">"%h %l %u %t &amp;quot;%r&amp;quot; %s %b"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
 <li><p>配置完成后保存。将修改后的Server.xml，通过Xftp到会到/usr/local/tomcat/conf/目录下，覆盖原文件。</p>
-<h3 id="说明-红色部分需要注意"><a href="#说明-红色部分需要注意" class="headerlink" title="说明:红色部分需要注意"></a>说明:红色部分需要注意</h3><h3 id="停止tomcat服务和重启tomcat服务"><a href="#停止tomcat服务和重启tomcat服务" class="headerlink" title="停止tomcat服务和重启tomcat服务"></a>停止tomcat服务和重启tomcat服务</h3><h4 id="查看进程："><a href="#查看进程：" class="headerlink" title="查看进程："></a>查看进程：</h4><p>执行<code>ps –ef |grep tomcat</code>，查看tomcat在linux中的进程号。如图所示：<br><img src="/多端口部署操作/1494471921767.png" alt="Alt text"></p>
+<h3 id="说明-红色部分需要注意"><a href="#说明-红色部分需要注意" class="headerlink" title="说明:红色部分需要注意"></a>说明:红色部分需要注意</h3><h3 id="停止tomcat服务和重启tomcat服务"><a href="#停止tomcat服务和重启tomcat服务" class="headerlink" title="停止tomcat服务和重启tomcat服务"></a>停止tomcat服务和重启tomcat服务</h3><h4 id="查看进程："><a href="#查看进程：" class="headerlink" title="查看进程："></a>查看进程：</h4><p>执行<code>ps –ef |grep tomcat</code>，查看tomcat在linux中的进程号。如图所示：<br><img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494471921767.png" alt="Alt text"></p>
 <blockquote>
 <p><code>14396</code>就是当前运行<code>tomcat</code>的进程号。</p>
 </blockquote>
@@ -556,7 +556,7 @@
 <h4 id="停止进程："><a href="#停止进程：" class="headerlink" title="停止进程："></a>停止进程：</h4><p>执行<code>kill -9 14396</code> 停止<code>tomcat</code>服务。</p>
 <h4 id="启动进程："><a href="#启动进程：" class="headerlink" title="启动进程："></a>启动进程：</h4><ol>
 <li>执行<code>cd /usr/local/tomcat/bin</code>，进入tomcat/bin目录中.</li>
-<li>在命令窗口中输入<code>./startup.sh</code>启动<code>tomcat</code>程序。如图所示：<br><img src="/多端口部署操作/1494472002998.png" alt="Alt text"></li>
+<li>在命令窗口中输入<code>./startup.sh</code>启动<code>tomcat</code>程序。如图所示：<br><img src="http://pp05hamo9.bkt.clouddn.com/picGo/1494472002998.png" alt="Alt text"></li>
 </ol>
 
       
