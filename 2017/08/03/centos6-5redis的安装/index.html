@@ -97,27 +97,27 @@
 <meta name="keywords" content="centos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos6.5redis的安装">
-<meta property="og:url" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/index.html">
+<meta property="og:url" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/index.html">
 <meta property="og:site_name" content="NATURE">
 <meta property="og:description" content="本文详细介绍Redis单机单实例安装与配置，服务及开机自启动。如有不对的地方，欢迎大家拍砖o(∩_∩)o（以下配置基于CentOS release 6.5 Final， redis版本3.0.2 [redis版本号中间位是偶数的是稳定版，奇数的为非稳定版]） 一．安装redis1. 下载redis安装包可去官网http://redis.io ，也可通过wget命令，1wget http://dow">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803114957565.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115044430.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115204151.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115320716.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-2017080311535709.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-2017080311541797.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115443212.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115537222.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803120025702.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803120141359.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803120229673.png">
-<meta property="og:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-2017080312030655.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803114957565.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115044430.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115204151.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115320716.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-2017080311535709.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-2017080311541797.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115443212.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803115537222.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803120025702.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803120141359.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803120229673.png">
+<meta property="og:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-2017080312030655.png">
 <meta property="og:updated_time" content="2019-03-25T14:02:56.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos6.5redis的安装">
 <meta name="twitter:description" content="本文详细介绍Redis单机单实例安装与配置，服务及开机自启动。如有不对的地方，欢迎大家拍砖o(∩_∩)o（以下配置基于CentOS release 6.5 Final， redis版本3.0.2 [redis版本号中间位是偶数的是稳定版，奇数的为非稳定版]） 一．安装redis1. 下载redis安装包可去官网http://redis.io ，也可通过wget命令，1wget http://dow">
-<meta name="twitter:image" content="http://marsleo.gitee.io/blog/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803114957565.png">
+<meta name="twitter:image" content="https://marsleoguo.github.io/2017/08/03/centos6-5redis的安装/centos6-5redis的安装/markdown-img-paste-20170803114957565.png">
 
 
 
@@ -320,7 +320,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://marsleo.gitee.io/blog/blog/2017/08/03/centos6-5redis的安装/">
+    <link itemprop="mainEntityOfPage" href="https://marsleoguo.github.io/blog/2017/08/03/centos6-5redis的安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MarsLeo Guo">
