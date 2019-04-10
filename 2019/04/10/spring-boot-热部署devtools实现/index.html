@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="springboot spring idea,">
 
 
 
@@ -93,16 +93,22 @@
 
 
 
-<meta name="description" content="人法地，地法天，天法道，道法自然。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="NATURE">
-<meta property="og:url" content="https://marsleoguo.github.io/archives/2017/07/index.html">
+<meta name="description" content="1. devtools 　　spring为开发者提供了一个名为spring-boot-devtools的模块来使Spring Boot应用支持热部署，提高开发者的开发效率，无需手动重启Spring Boot应用。 2. 项目搭建 　　本文是采用IDEA搭建的Spring Boot应用，通过spring-boot-devtools配置，可以支持修改java文件会自动重启程序，一些资源无需触发重启，例">
+<meta name="keywords" content="springboot spring idea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring boot 热部署devtools实现">
+<meta property="og:url" content="https://marsleoguo.github.io/2019/04/10/spring-boot-热部署devtools实现/index.html">
 <meta property="og:site_name" content="NATURE">
-<meta property="og:description" content="人法地，地法天，天法道，道法自然。">
+<meta property="og:description" content="1. devtools 　　spring为开发者提供了一个名为spring-boot-devtools的模块来使Spring Boot应用支持热部署，提高开发者的开发效率，无需手动重启Spring Boot应用。 2. 项目搭建 　　本文是采用IDEA搭建的Spring Boot应用，通过spring-boot-devtools配置，可以支持修改java文件会自动重启程序，一些资源无需触发重启，例">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092324.png">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092511.png">
+<meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092728.png">
+<meta property="og:updated_time" content="2019-04-10T01:28:58.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NATURE">
-<meta name="twitter:description" content="人法地，地法天，天法道，道法自然。">
+<meta name="twitter:title" content="spring boot 热部署devtools实现">
+<meta name="twitter:description" content="1. devtools 　　spring为开发者提供了一个名为spring-boot-devtools的模块来使Spring Boot应用支持热部署，提高开发者的开发效率，无需手动重启Spring Boot应用。 2. 项目搭建 　　本文是采用IDEA搭建的Spring Boot应用，通过spring-boot-devtools配置，可以支持修改java文件会自动重启程序，一些资源无需触发重启，例">
+<meta name="twitter:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092324.png">
 
 
 
@@ -134,7 +140,7 @@
 
 
 
-  <title>归档 | NATURE</title>
+  <title>spring boot 热部署devtools实现 | NATURE</title>
   
 
 
@@ -159,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,383 +301,209 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 30 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://marsleoguo.github.io/2019/04/10/spring-boot-热部署devtools实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MarsLeo Guo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/20170718142644.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NATURE">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spring boot 热部署devtools实现</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-10T09:22:05+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p><strong>1. devtools</strong></p>
+<p>　　spring为开发者提供了一个名为spring-boot-devtools的模块来使Spring Boot应用支持热部署，提高开发者的开发效率，无需手动重启Spring Boot应用。</p>
+<p><strong>2. 项目搭建</strong></p>
+<p>　　本文是采用IDEA搭建的Spring Boot应用，通过spring-boot-devtools配置，可以支持修改java文件会自动重启程序，一些资源无需触发重启，例如thymeleaf模板文件就可以实时编辑。默认情况下，更改/META-INF/maven，/META-INF/resources ，/resources ，/static ，/public 或/templates下的资源不会触发重启，而是触发livereload。devtools模块包含一个嵌入的livereload服务器，可以在资源变化时用来触发浏览器刷新。浏览器需要在livereload.com下载安装扩展。 例如Chrome浏览器在应用商店安装livereload插件后，在要自动刷新的页面点击对应的图标，启动应用后更新页面内容或者css等都会触发页面自动刷新。</p>
+<p><strong>3. livereload</strong></p>
+<p>　　livereload 通过引入的脚本livereload.js在 livereload 服务和浏览器之间建立了一个 WebSocket 连接。每当监测到文件的变动，livereload 服务就会向浏览器发送一个信号，浏览器收到信号后就刷新页面，实现了实时刷新的效果。每次启动时，需要点击对应的图标，如下图所示。</p>
+<p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092324.png" alt></p>
+<p><strong>4. 项目代码配置</strong></p>
+<ol>
+<li>pom.xml配置文件</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span> <span class="comment">&lt;!-- 如果没有该配置，devtools不会生效 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>yml配置</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">devtools:</span></span><br><span class="line"><span class="attr">  livereload:</span></span><br><span class="line"><span class="attr">    enabled:</span> <span class="literal">true</span> <span class="comment">#是否支持livereload</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">35729</span></span><br><span class="line"><span class="attr">  restart:</span></span><br><span class="line"><span class="attr">    enabled:</span> <span class="literal">true</span> <span class="comment">#是否支持热部署</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li><p><strong>IDEA配置</strong></p>
+</li>
+<li><p>File-Settings-Compiler-Build project automatically<br><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092511.png" alt></p>
+</li>
+<li><p>ctrl + shift + alt + /,选择Registry,勾上 Compiler autoMake allow when app running</p>
+</li>
+</ol>
+<p><strong>6.安装livereload插件</strong><br>下载livereload插件，将其安装到chrome扩展程序中，并选中允许访问文件网址。</p>
+<p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092728.png" alt></p>
+<p><strong>7.测试</strong></p>
+<ol>
+<li>修改类 应用会重启</li>
+<li>修改配置文件 应用会重启</li>
+<li>修改静态文件（html、css等），应用不会重启，但是会调用livereload，浏览器会自动刷新，显示最新的修改内容。</li>
+</ol>
+<hr>
+<p><strong>参考资料：</strong></p>
+<p><a href="https://www.cnblogs.com/TechSnail/p/7690829.html" target="_blank" rel="noopener">spring boot 热部署devtools实现</a></p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/springboot-spring-idea/" rel="tag"># springboot spring idea</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/09/zsh-command-not-found-解决方法/" rel="next" title="zsh: command not found: 解决方法">
+                <i class="fa fa-chevron-left"></i> zsh: command not found: 解决方法
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/21/关于javaScript/" itemprop="url">
-              
-                <span itemprop="name">关于javaScript</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-21T15:25:44+08:00" content="2017-07-21">
-          07-21
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/21/关于Shell/" itemprop="url">
-              
-                <span itemprop="name">关于Shell</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-21T15:23:52+08:00" content="2017-07-21">
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/21/centos相关/" itemprop="url">
-              
-                <span itemprop="name">centos相关</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-21T14:28:56+08:00" content="2017-07-21">
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/21/辽宁大学一日游/" itemprop="url">
-              
-                <span itemprop="name">辽宁大学一日游</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-21T06:56:26+08:00" content="2017-07-21">
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/20/记老婆的红海滩之行/" itemprop="url">
-              
-                <span itemprop="name">记老婆的红海滩之行</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-20T20:49:14+08:00" content="2017-07-20">
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/20/centos安装/" itemprop="url">
-              
-                <span itemprop="name">centos安装</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-20T10:56:47+08:00" content="2017-07-20">
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/20/记一次早起/" itemprop="url">
-              
-                <span itemprop="name">记一次早起</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-20T08:22:31+08:00" content="2017-07-20">
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/19/SourceTree-免登录跳过初始设置/" itemprop="url">
-              
-                <span itemprop="name">SourceTree 免登录跳过初始设置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-19T11:27:57+08:00" content="2017-07-19">
-          07-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/19/Hexo常见问题/" itemprop="url">
-              
-                <span itemprop="name">Hexo常见问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-19T11:20:02+08:00" content="2017-07-19">
-          07-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/19/多端口部署操作/" itemprop="url">
-              
-                <span itemprop="name">多端口部署操作</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-07-19T11:20:02+08:00" content="2017-07-19">
-          07-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2017/07/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/07/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -679,6 +511,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -916,11 +752,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
