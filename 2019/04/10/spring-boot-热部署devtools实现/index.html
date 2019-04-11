@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092324.png">
 <meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092511.png">
 <meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092728.png">
-<meta property="og:updated_time" content="2019-04-10T01:28:58.708Z">
+<meta property="og:updated_time" content="2019-04-10T05:20:29.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring boot 热部署devtools实现">
 <meta name="twitter:description" content="1. devtools 　　spring为开发者提供了一个名为spring-boot-devtools的模块来使Spring Boot应用支持热部署，提高开发者的开发效率，无需手动重启Spring Boot应用。 2. 项目搭建 　　本文是采用IDEA搭建的Spring Boot应用，通过spring-boot-devtools配置，可以支持修改java文件会自动重启程序，一些资源无需触发重启，例">
@@ -406,6 +406,7 @@
 <p>　　spring为开发者提供了一个名为spring-boot-devtools的模块来使Spring Boot应用支持热部署，提高开发者的开发效率，无需手动重启Spring Boot应用。</p>
 <p><strong>2. 项目搭建</strong></p>
 <p>　　本文是采用IDEA搭建的Spring Boot应用，通过spring-boot-devtools配置，可以支持修改java文件会自动重启程序，一些资源无需触发重启，例如thymeleaf模板文件就可以实时编辑。默认情况下，更改/META-INF/maven，/META-INF/resources ，/resources ，/static ，/public 或/templates下的资源不会触发重启，而是触发livereload。devtools模块包含一个嵌入的livereload服务器，可以在资源变化时用来触发浏览器刷新。浏览器需要在livereload.com下载安装扩展。 例如Chrome浏览器在应用商店安装livereload插件后，在要自动刷新的页面点击对应的图标，启动应用后更新页面内容或者css等都会触发页面自动刷新。</p>
+<a id="more"></a>
 <p><strong>3. livereload</strong></p>
 <p>　　livereload 通过引入的脚本livereload.js在 livereload 服务和浏览器之间建立了一个 WebSocket 连接。每当监测到文件的变动，livereload 服务就会向浏览器发送一个信号，浏览器收到信号后就刷新页面，实现了实时刷新的效果。每次启动时，需要点击对应的图标，如下图所示。</p>
 <p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092324.png" alt></p>
@@ -571,7 +572,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

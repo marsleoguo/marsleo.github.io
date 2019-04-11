@@ -396,44 +396,17 @@
 
       
         
-          
-            <p><strong>1. devtools</strong></p>
+          <p><strong>1. devtools</strong></p>
 <p>　　spring为开发者提供了一个名为spring-boot-devtools的模块来使Spring Boot应用支持热部署，提高开发者的开发效率，无需手动重启Spring Boot应用。</p>
 <p><strong>2. 项目搭建</strong></p>
 <p>　　本文是采用IDEA搭建的Spring Boot应用，通过spring-boot-devtools配置，可以支持修改java文件会自动重启程序，一些资源无需触发重启，例如thymeleaf模板文件就可以实时编辑。默认情况下，更改/META-INF/maven，/META-INF/resources ，/resources ，/static ，/public 或/templates下的资源不会触发重启，而是触发livereload。devtools模块包含一个嵌入的livereload服务器，可以在资源变化时用来触发浏览器刷新。浏览器需要在livereload.com下载安装扩展。 例如Chrome浏览器在应用商店安装livereload插件后，在要自动刷新的页面点击对应的图标，启动应用后更新页面内容或者css等都会触发页面自动刷新。</p>
-<p><strong>3. livereload</strong></p>
-<p>　　livereload 通过引入的脚本livereload.js在 livereload 服务和浏览器之间建立了一个 WebSocket 连接。每当监测到文件的变动，livereload 服务就会向浏览器发送一个信号，浏览器收到信号后就刷新页面，实现了实时刷新的效果。每次启动时，需要点击对应的图标，如下图所示。</p>
-<p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092324.png" alt></p>
-<p><strong>4. 项目代码配置</strong></p>
-<ol>
-<li>pom.xml配置文件</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span> <span class="comment">&lt;!-- 如果没有该配置，devtools不会生效 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>yml配置</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">devtools:</span></span><br><span class="line"><span class="attr">  livereload:</span></span><br><span class="line"><span class="attr">    enabled:</span> <span class="literal">true</span> <span class="comment">#是否支持livereload</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">35729</span></span><br><span class="line"><span class="attr">  restart:</span></span><br><span class="line"><span class="attr">    enabled:</span> <span class="literal">true</span> <span class="comment">#是否支持热部署</span></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li><p><strong>IDEA配置</strong></p>
-</li>
-<li><p>File-Settings-Compiler-Build project automatically<br><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092511.png" alt></p>
-</li>
-<li><p>ctrl + shift + alt + /,选择Registry,勾上 Compiler autoMake allow when app running</p>
-</li>
-</ol>
-<p><strong>6.安装livereload插件</strong><br>下载livereload插件，将其安装到chrome扩展程序中，并选中允许访问文件网址。</p>
-<p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190410092728.png" alt></p>
-<p><strong>7.测试</strong></p>
-<ol>
-<li>修改类 应用会重启</li>
-<li>修改配置文件 应用会重启</li>
-<li>修改静态文件（html、css等），应用不会重启，但是会调用livereload，浏览器会自动刷新，显示最新的修改内容。</li>
-</ol>
-<hr>
-<p><strong>参考资料：</strong></p>
-<p><a href="https://www.cnblogs.com/TechSnail/p/7690829.html" target="_blank" rel="noopener">spring boot 热部署devtools实现</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/10/spring-boot-热部署devtools实现/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -623,7 +596,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://marsleoguo.github.io/2019/04/09/Elasticsearch-安装及错误问题/">
+    <link itemprop="mainEntityOfPage" href="https://marsleoguo.github.io/2019/04/09/ELK安装及错误问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MarsLeo Guo">
@@ -642,7 +615,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/09/Elasticsearch-安装及错误问题/" itemprop="url">Elasticsearch 安装及错误问题</a></h1>
+                <a class="post-title-link" href="/2019/04/09/ELK安装及错误问题/" itemprop="url">ELK 安装及错误问题</a></h1>
         
 
         <div class="post-meta">
@@ -712,51 +685,40 @@
 
       
         
-          
-            <h2 id="Homebrew-安装ES"><a href="#Homebrew-安装ES" class="headerlink" title="Homebrew 安装ES"></a>Homebrew 安装ES</h2><ol>
-<li>利用brew安装</li>
+          <h2 id="安装ES"><a href="#安装ES" class="headerlink" title="安装ES"></a>安装ES</h2><p>ELK是有Elastic公司的三个组件配合进行日志收集，分别是：</p>
+<ul>
+<li>ElasticSearch:用于存储日志信息。</li>
+<li>Logstash:用于收集、处理和转发日志信息。</li>
+<li>Kibana:提供可搜索的Web可视化界面。</li>
+</ul>
+<p>当然，现在很多都配合着Beats进行使用，这里不做过多描述，感兴趣的可以查看官网，<a href="https://www.elastic.co/cn/products/beats" target="_blank" rel="noopener">https://www.elastic.co/cn/products/beats</a>，这里有很多对Beats的描述。</p>
+<h3 id="安装ES-1"><a href="#安装ES-1" class="headerlink" title="安装ES"></a>安装ES</h3><ol>
+<li><p>从官网下载<a href="https://www.elastic.co/cn/products/elasticsearch" target="_blank" rel="noopener">elasticsearch</a></p>
+</li>
+<li><p>将压缩包解压到适当位置</p>
+</li>
+<li><p>通过终端进入到文件夹内</p>
+</li>
+<li><p>修改elasticsearch的配置文件，文件路径在<code>elasticsearch-6.7.1/config/elasticsearch.yml</code>,在文件末端追加：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去掉指定的ip地址</span></span><br><span class="line"><span class="string">network.host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. brew update</span><br><span class="line">2. brew install elasticsearch</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><p>启动ES：命令行输入：<code>elasticsearch</code></p>
+<ol start="5">
+<li><p>启动ES：命令行输入命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. cd bin/</span><br><span class="line">2. ./elasticsearch //前台运行 或者 nohub ./elasticsearch &amp; //后台运行</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>验证是否安装成功：</p>
 </li>
 </ol>
 <p>浏览器输入：<a href="http://localhost:9200/" target="_blank" rel="noopener">http://localhost:9200/</a> </p>
-<h2 id="安装Head"><a href="#安装Head" class="headerlink" title="安装Head"></a>安装Head</h2><ol>
-<li><p>安装 nodejs</p>
-</li>
-<li><p>安装grunt</p>
-<ol>
-<li><code>npm install -g grunt-cli</code></li>
-<li>安装完成后执行： <code>grunt -version</code></li>
-</ol>
-<p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190409141923.png" alt></p>
-<ol start="3">
-<li><p>配置运行</p>
-<ol>
-<li><p>进入Elasticsearch安装目录下的config目录，修改elasticsearch.yml文件.在文件的末尾加入以下代码</p>
-</li>
-<li><p>重启ES</p>
-</li>
-<li><p>在<a href="https://github.com/mobz/elasticsearch-head中下载head插件，选择下载zip" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head中下载head插件，选择下载zip</a></p>
-</li>
-<li><p>解压到指定文件夹下,进入该文件夹，修改<code>Gruntfile.js</code> 在对应的位置加上<code>hostname:&#39;*&#39;</code></p>
-<p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190409142157.png" alt></p>
-</li>
-<li><p>执行<code>npm install</code> 安装<br>，完成后执行<code>grunt server</code> 或者<code>npm run start</code>运行head插件，如果运行不成功建议重新安装grunt。成功如下</p>
-<p>登录地址：<a href="http://127.0.0.1:9100" target="_blank" rel="noopener">http://127.0.0.1:9100</a></p>
-<p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190409142248.png" alt></p>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="ERROR-Cluster-name-elasticsearch-nathan-subdirectory-exists-in-data-paths"><a href="#ERROR-Cluster-name-elasticsearch-nathan-subdirectory-exists-in-data-paths" class="headerlink" title="ERROR: Cluster name [elasticsearch_nathan] subdirectory exists in data paths]"></a>ERROR: Cluster name [elasticsearch_nathan] subdirectory exists in data paths]</h3><p>解决办法：删除路径中提到的路径：例如：删除<code>/usr/local/var/lib/elasticsearch</code></p>
-
-          
+<p><img src="http://pp05hamo9.bkt.clouddn.com/picGo/20190410135506.png" alt></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/09/ELK安装及错误问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1947,7 +1909,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
