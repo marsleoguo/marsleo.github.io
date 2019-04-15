@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/20190410141430.png">
 <meta property="og:image" content="http://pp05hamo9.bkt.clouddn.com/picGo/20190410142919.png">
 <meta property="og:image" content="https://marsleoguo.github.io/Users/wanghc/myblog/source/_posts/assets/image-20190410143122162.png">
-<meta property="og:updated_time" content="2019-04-11T02:28:42.728Z">
+<meta property="og:updated_time" content="2019-04-11T03:31:45.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ELK 安装及错误问题">
 <meta name="twitter:description" content="安装ESELK是有Elastic公司的三个组件配合进行日志收集，分别是：  ElasticSearch:用于存储日志信息。 Logstash:用于收集、处理和转发日志信息。 Kibana:提供可搜索的Web可视化界面。  当然，现在很多都配合着Beats进行使用，这里不做过多描述，感兴趣的可以查看官网，https://www.elastic.co/cn/products/beats，这里有很多对B">
@@ -532,6 +532,9 @@
 </li>
 </ol>
 <p>   <img src="/Users/wanghc/myblog/source/_posts/assets/image-20190410143122162.png" alt></p>
+<h2 id="定时删除过期的日志"><a href="#定时删除过期的日志" class="headerlink" title="定时删除过期的日志"></a>定时删除过期的日志</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>/bin/bash</span><br><span class="line"><span class="meta">#</span>es-index-clear</span><br><span class="line"><span class="meta">#</span>只保留15天内的日志索引</span><br><span class="line">LAST_DATA=`date -d "-15 days" "+%Y.%m.%d"`</span><br><span class="line"><span class="meta">#</span>删除上个月份所有的索引</span><br><span class="line">curl -XDELETE 'http://ip:port/*-'$&#123;LAST_DATA&#125;'*'</span><br></pre></td></tr></table></figure>
+<p>crontab -e添加定时任务：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 1 * * * /search/odin/elasticsearch/scripts/es-index-clear.sh</span><br></pre></td></tr></table></figure>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="ERROR-Cluster-name-elasticsearch-nathan-subdirectory-exists-in-data-paths"><a href="#ERROR-Cluster-name-elasticsearch-nathan-subdirectory-exists-in-data-paths" class="headerlink" title="ERROR: Cluster name [elasticsearch_nathan] subdirectory exists in data paths]"></a>ERROR: Cluster name [elasticsearch_nathan] subdirectory exists in data paths]</h3><p>解决办法：删除路径中提到的路径：例如：删除<code>/usr/local/var/lib/elasticsearch</code></p>
 
       
@@ -658,7 +661,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -680,7 +683,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -726,7 +729,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ES"><span class="nav-number">1.</span> <span class="nav-text">安装ES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ES-1"><span class="nav-number">1.1.</span> <span class="nav-text">安装ES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Head"><span class="nav-number">1.2.</span> <span class="nav-text">安装Head</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Kibana"><span class="nav-number">2.</span> <span class="nav-text">安装Kibana</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汉化kibana"><span class="nav-number">3.</span> <span class="nav-text">汉化kibana</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装logstash"><span class="nav-number">4.</span> <span class="nav-text">安装logstash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springboot集成logstash"><span class="nav-number">5.</span> <span class="nav-text">springboot集成logstash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">6.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ERROR-Cluster-name-elasticsearch-nathan-subdirectory-exists-in-data-paths"><span class="nav-number">6.1.</span> <span class="nav-text">ERROR: Cluster name [elasticsearch_nathan] subdirectory exists in data paths]</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ES"><span class="nav-number">1.</span> <span class="nav-text">安装ES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ES-1"><span class="nav-number">1.1.</span> <span class="nav-text">安装ES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Head"><span class="nav-number">1.2.</span> <span class="nav-text">安装Head</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Kibana"><span class="nav-number">2.</span> <span class="nav-text">安装Kibana</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汉化kibana"><span class="nav-number">3.</span> <span class="nav-text">汉化kibana</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装logstash"><span class="nav-number">4.</span> <span class="nav-text">安装logstash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springboot集成logstash"><span class="nav-number">5.</span> <span class="nav-text">springboot集成logstash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时删除过期的日志"><span class="nav-number">6.</span> <span class="nav-text">定时删除过期的日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">7.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ERROR-Cluster-name-elasticsearch-nathan-subdirectory-exists-in-data-paths"><span class="nav-number">7.1.</span> <span class="nav-text">ERROR: Cluster name [elasticsearch_nathan] subdirectory exists in data paths]</span></a></li></ol></li></ol></div>
             
 
           </div>
